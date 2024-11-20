@@ -1,0 +1,29 @@
+# Node.js dependencies
+/node_modules/
+
+# dotenv environment variable file
+/.env
+
+# Log files
+*.log
+
+# npm package lock file
+package-lock.json
+
+# Temporary files and directories
+.DS_Store
+.vscode/
+
+# IDE and editor-specific files
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Test coverage
+/coverage/
+
+# MongoDB data (if applicable)
+db/
+
+# Operating System-specific files
+Thumbs.db
