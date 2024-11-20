@@ -37,7 +37,6 @@ Set Up Environment Variables
 Create a .env file in the root of the project and add the following environment variables:
 
 ```makefile
-Copy code
 DB_USERNAME=<your-db-username>
 DB_PASSWORD=<your-db-password>
 DB_NAME=<your-db-name>
