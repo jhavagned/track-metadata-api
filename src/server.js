@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors'; // Import CORS package
 import connectDB from './utils/db.js';  // Import connection
 import Song from './models/Song.js';  // Import the Song model
 import fs from 'fs'; // For logging missing songs
@@ -19,6 +20,24 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.json()); // Middleware for parsing JSON
+
+// Allowed origins for CORS
+const allowedOrigins = [
+    'http://localhost:3000', // React development server
+    'https://your-production-frontend.com' // Replace with your actual deployed frontend URL
+];
+
+// Configure CORS middleware
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true // Enable if using cookies/auth headers
+}));
 
 /**
  * Simple route to confirm that the API is working
